@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from models.lead import Lead
+from models import Lead
 from schemas.lead import LeadCreate, LeadUpdate
 from database import get_db
 
