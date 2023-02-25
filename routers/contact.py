@@ -8,7 +8,7 @@ router = APIRouter()
 
 @router.post("/contacts")
 def create_contact(contact: ContactCreate, db: Session = Depends(get_db)):
-    db_contact = Contact(name=contact.name, email=contact.email)
+    db_contact = Contact(first_name=contact.first_name, email=contact.email)
     db.add(db_contact)
     db.commit()
     db.refresh(db_contact)

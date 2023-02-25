@@ -1,7 +1,8 @@
 from pydantic import BaseModel
 
 class ContactBase(BaseModel):
-    name: str
+    first_name: str
+    last_name: str
     email: str
     phone: str = None
     company: str = None

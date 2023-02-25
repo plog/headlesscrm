@@ -1,13 +1,13 @@
 import json
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
-
 from app import app
 from models import Contact
+from database import get_db
 
 client = TestClient(app)
 
-def test_list_all_contacts(db: Session):
+def test_list_all_contacts(db):
     john_doe = Contact(
         first_name="John",
         last_name="Doe",
