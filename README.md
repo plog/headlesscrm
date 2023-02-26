@@ -97,5 +97,5 @@ The API documentation is available at http://localhost:8000/docs when the API is
 To run the unit tests, use the following command:
 
 ```
-pytest
+pytest --html=report.html
 ```

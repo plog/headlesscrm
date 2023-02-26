@@ -2,7 +2,6 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 from database import Base
 
-
 contact_events = Table(
     "contact_events",
     Base.metadata,
@@ -17,20 +16,18 @@ lead_events = Table(
     Column("event_id", Integer, ForeignKey("events.id")),
 )
 
-
 class Contact(Base):
     __tablename__ = "contacts"
-
-    id = Column(Integer, primary_key=True, index=True)
-    first_name = Column(String, index=True)
-    last_name = Column(String, index=True)
-    email = Column(String, unique=True, index=True)
-    phone = Column(String, index=True)
+    id          = Column(Integer, primary_key=True, index=True)
+    first_name  = Column(String, index=True)
+    last_name   = Column(String, index=True)
+    email       = Column(String, unique=True, index=True)
+    phone       = Column(String, index=True)
+    company     = Column(String, index=True)
 
     events = relationship(
         "Event", secondary=contact_events, back_populates="contacts"
     )
-
 
 class Lead(Base):
     __tablename__ = "leads"
